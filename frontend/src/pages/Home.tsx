@@ -9,6 +9,8 @@ const Home = () => {
 
   const topRowHotels = hotels?.slice(0, 2) || [];
   const bottomRowHotels = hotels?.slice(2) || [];
+  // console.log(topRowHotels);
+  // console.log(bottomRowHotels);
 
   return (
     <div className="space-y-3">
@@ -16,13 +18,13 @@ const Home = () => {
       <p>Most recent destinations added by our hosts</p>
       <div className="grid gap-4">
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4">
-          {topRowHotels.map((hotel) => (
-            <LatestDestinationCard hotel={hotel} />
+          {topRowHotels.map((hotel, i) => (
+            <LatestDestinationCard hotel={hotel} key={i} />
           ))}
         </div>
         <div className="grid md:grid-cols-3 gap-4">
-          {bottomRowHotels.map((hotel) => (
-            <LatestDestinationCard hotel={hotel} />
+          {bottomRowHotels.map((hotel, i) => (
+            <LatestDestinationCard hotel={hotel} key={i} />
           ))}
         </div>
       </div>

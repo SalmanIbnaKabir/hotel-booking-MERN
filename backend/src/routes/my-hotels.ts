@@ -37,17 +37,22 @@ router.post(
   upload.array("imageFiles", 6),
   async (req: Request, res: Response) => {
     try {
+      // console.log(req.body);
       const imageFiles = req.files as Express.Multer.File[];
+
       const newHotel: HotelType = req.body;
 
       const imageUrls = await uploadImages(imageFiles);
+      // console.log(imageUrls);
 
       newHotel.imageUrls = imageUrls;
       newHotel.lastUpdated = new Date();
       newHotel.userId = req.userId;
-
+      // console.log(newHotel);
       const hotel = new Hotel(newHotel);
+
       await hotel.save();
+      // console.log(result);
 
       res.status(201).send(hotel);
     } catch (e) {
@@ -112,7 +117,7 @@ router.put(
       await hotel.save();
       res.status(201).json(hotel);
     } catch (error) {
-      res.status(500).json({ message: "Something went throw" });
+      res.status(500).json({ message: "Something went wrong" });
     }
   }
 );

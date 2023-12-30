@@ -11,10 +11,10 @@ const LatestDestinationCard = ({ hotel }: Props) => {
       to={`/detail/${hotel._id}`}
       className="relative cursor-pointer overflow-hidden rounded-md"
     >
-      <div className="h-[300px]">
+      <div className="h-[300px] overflow-hidden">
         <img
           src={hotel.imageUrls[0]}
-          className="w-full h-full object-cover object-center"
+          className="w-full h-full object-cover object-center hover:scale-[1.2] transition-all duration-500"
         />
       </div>
 

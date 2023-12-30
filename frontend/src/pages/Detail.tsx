@@ -22,7 +22,8 @@ const Detail = () => {
   return (
     <div className="space-y-6">
       <div>
-        <span className="flex">
+        <span className="flex items-center">
+          Rating:{" "}
           {Array.from({ length: hotel.starRating }).map((_, i) => (
             <AiFillStar className="fill-yellow-400" key={i} />
           ))}
@@ -32,11 +33,11 @@ const Detail = () => {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {hotel.imageUrls.map((image, i) => (
-          <div className="h-[300px]" key={i}>
+          <div className="h-[300px] overflow-hidden rounded-md" key={i}>
             <img
               src={image}
               alt={hotel.name}
-              className="rounded-md w-full h-full object-cover object-center"
+              className="rounded-md w-full h-full object-cover object-center hover:scale-[1.2] transition-all duration-500 overflow-hidden "
             />
           </div>
         ))}

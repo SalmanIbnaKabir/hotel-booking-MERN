@@ -18,7 +18,9 @@ const Pagination = ({ page, pages, onPageChange }: Props) => {
             className={`px-2 py-1 ${page === number ? "bg-gray-200" : ""}`}
             key={i}
           >
-            <button onClick={() => onPageChange(number)}>{number}</button>
+            <button onClick={() => onPageChange(number)} className="rounded">
+              {number}
+            </button>
           </li>
         ))}
       </ul>
